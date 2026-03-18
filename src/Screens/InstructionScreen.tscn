@@ -1,0 +1,203 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://assets/background 1.png" type="Texture" id=1]
+[ext_resource path="res://src/UserInterface/ReplayButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/UserInterface/ReplayButton.gd" type="Script" id=3]
+[ext_resource path="res://assets/ui_theme.tres" type="Theme" id=4]
+[ext_resource path="res://assets/scoreProgress.png" type="Texture" id=5]
+[ext_resource path="res://src/UserInterface/QuitButton.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/UserInterface/Title.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/donutStar.png" type="Texture" id=8]
+[ext_resource path="res://assets/bug.png" type="Texture" id=9]
+[ext_resource path="res://assets/PAUSED.png" type="Texture" id=10]
+[ext_resource path="res://assets/frogInstrctions.png" type="Texture" id=11]
+[ext_resource path="res://assets/snowballs.png" type="Texture" id=12]
+
+[node name="InstructionScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -187.0
+margin_top = 342.0
+margin_right = 191.0
+margin_bottom = 491.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ReplayButton" parent="Menu" instance=ExtResource( 2 )]
+margin_right = 378.0
+margin_bottom = 70.0
+script = ExtResource( 3 )
+next_scene_path = "res://src/Levels/Level1.tscn"
+
+[node name="QuitButton" parent="Menu" instance=ExtResource( 6 )]
+margin_top = 78.0
+margin_right = 378.0
+margin_bottom = 149.0
+
+[node name="Title" parent="." instance=ExtResource( 7 )]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = -571.073
+margin_top = -487.47
+margin_right = 609.927
+margin_bottom = -419.47
+text = "HOW TO PLAY"
+
+[node name="Label2" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -835.0
+margin_top = 195.53
+margin_right = 91.0
+margin_bottom = 294.53
+text = "Avoid the bugs: if they touch you, you die. Jump on them to kill them
+If you die, you return to the very first level"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Label2"]
+margin_top = 69.0
+margin_right = 386.0
+margin_bottom = 242.0
+texture = ExtResource( 9 )
+expand = true
+
+[node name="Label6" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 261.0
+margin_top = 216.53
+margin_right = 862.0
+margin_bottom = 437.53
+text = "The score is displayed in the top right corner along with the progress bar which indicates how much more food the frog needs"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Label6"]
+margin_top = 102.0
+margin_right = 415.0
+margin_bottom = 254.0
+texture = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -835.0
+margin_top = -388.956
+margin_right = 63.0004
+margin_bottom = -323.956
+text = "Use the arrow keys and space bar to move the frog"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Label"]
+margin_top = 31.0
+margin_right = 319.0
+margin_bottom = 217.0
+texture = ExtResource( 11 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label5" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 261.0
+margin_top = -127.47
+margin_right = 1159.0
+margin_bottom = -62.47
+text = "Press the return key to pause and unpause the game"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Label5"]
+margin_top = 34.0
+margin_right = 415.0
+margin_bottom = 323.0
+texture = ExtResource( 10 )
+expand = true
+
+[node name="Label3" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -835.0
+margin_top = -127.47
+margin_right = -79.0
+margin_bottom = -62.47
+text = "Each item of food is worth 100 points, stars are worth 500 points and you gain 150 points for killing a bug"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Label3"]
+margin_top = 65.0
+margin_right = 289.0
+margin_bottom = 287.0
+texture = ExtResource( 8 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label4" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 261.0
+margin_top = -388.956
+margin_right = 1617.0
+margin_bottom = -357.956
+text = "Avoid the snowballs that may fall from the sky too"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Label4"]
+margin_top = 31.0
+margin_right = 365.0
+margin_bottom = 253.0
+texture = ExtResource( 12 )
+expand = true

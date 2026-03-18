@@ -1,0 +1,74 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/background 1.png" type="Texture" id=1]
+[ext_resource path="res://src/UserInterface/RetryButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/game_completed.wav" type="AudioStream" id=3]
+[ext_resource path="res://assets/ui_theme.tres" type="Theme" id=4]
+[ext_resource path="res://src/Screens/EndScreen.gd" type="Script" id=5]
+[ext_resource path="res://src/UserInterface/QuitButton.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/UserInterface/Title.tscn" type="PackedScene" id=7]
+
+[node name="EndScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 4 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -129.49
+margin_top = 111.319
+margin_right = 120.51
+margin_bottom = 329.319
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RetryButton" parent="Menu" instance=ExtResource( 2 )]
+margin_bottom = 105.0
+
+[node name="QuitButton" parent="Menu" instance=ExtResource( 6 )]
+margin_top = 113.0
+
+[node name="Title" parent="." instance=ExtResource( 7 )]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = -559.071
+margin_top = -218.083
+margin_right = 621.929
+margin_bottom = -150.083
+text = "Congratulations, you finished the game!"
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -136.0
+margin_top = -32.5
+margin_right = 136.0
+margin_bottom = 32.5
+text = "You died  %s time(s)"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
